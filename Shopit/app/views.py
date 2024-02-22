@@ -1,4 +1,13 @@
 from django.shortcuts import render
+from django.views import View
+from .models import *
+class ProductView(View):
+ def get(self,request):
+  topwears = Product.objects.filter(category='TW')  
+  mobile = Product.objects.filter(category='M')  
+  bottom = Product.objects.filter(category='BW')  
+  laptop = Product.objects.filter(category='L') 
+  return render(request, 'app/home.html',) 
 
 def home(request):
  return render(request, 'app/home.html')
