@@ -40,9 +40,9 @@ def mobile(request, data=None):
   if data == None:
     mobiles = Product.objects.filter(category='M')
   elif data == 'below': 
-    mobiles = Product.objects.filter(category='M').filter(discounted_price__lt=10000)
+    mobiles = Product.objects.filter(category='M').filter(discounted_price__lt = 20000)
   elif data == 'above': 
-    mobiles = Product.objects.filter(category='M').filter(discounted_price__gt=10000)
+    mobiles = Product.objects.filter(category='M').filter(discounted_price__gt = 20000)
   else : 
     mobiles = Product.objects.filter(category='M').filter(brand=data)
   return render(request, 'app/mobile.html',{'mobiles' : mobiles})
